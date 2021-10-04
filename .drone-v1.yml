@@ -14,27 +14,27 @@ steps:
   - export HOME=/home/packer
   - packer validate packer.json
 
-# - name: inspect
-#   pull: if-not-exists
-#   image: quay.io/ukhomeofficedigital/dq-packer-ansible
-#   commands:
-#   - export HOME=/home/packer
-#   - packer inspect packer.json
-#
-# - name: build
-#   pull: if-not-exists
-#   image: quay.io/ukhomeofficedigital/dq-packer-ansible
-#   commands:
-#   - export HOME=/home/packer
-#   - packer build packer.json
-#   environment:
-#     AWS_ACCESS_KEY_ID:
-#       from_secret: AWS_ACCESS_KEY_ID
-#     AWS_SECRET_ACCESS_KEY:
-#       from_secret: AWS_SECRET_ACCESS_KEY
-#   when:
-#     event:
-#     - push
+- name: inspect
+  pull: if-not-exists
+  image: quay.io/ukhomeofficedigital/dq-packer-ansible
+  commands:
+  - export HOME=/home/packer
+  - packer inspect packer.json
+
+- name: build
+  pull: if-not-exists
+  image: quay.io/ukhomeofficedigital/dq-packer-ansible
+  commands:
+  - export HOME=/home/packer
+  - packer build packer.json
+  environment:
+    AWS_ACCESS_KEY_ID:
+      from_secret: AWS_ACCESS_KEY_ID
+    AWS_SECRET_ACCESS_KEY:
+      from_secret: AWS_SECRET_ACCESS_KEY
+  when:
+    event:
+    - push
 #
 # - name: packer-copy-notprod
 #   pull: if-not-exists

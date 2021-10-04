@@ -1,4 +1,4 @@
-# dq-packer-ops-win-bastion
+# dq-packer-ops-win-bastion-2016
 This AMI is used as a bastion/jump box and has got various tools installed required to manage various services within the DQ environment.
 
 ## Features
